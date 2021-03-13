@@ -61,10 +61,9 @@ function swapAndCheck(treeNode) {
 
   let {right} = treeNode;
 
-  if (treeNode.left !== null)
-    treeNode.right = swapAndCheck(treeNode.left);
-  if(treeNode.right !== null)
-    treeNode.left = swapAndCheck(right);
+  treeNode.right = (treeNode.left !== null) ? swapAndCheck(treeNode.left) : treeNode.left;
+  treeNode.left = (right !== null) ? swapAndCheck(right) : right;
+
 return treeNode;
 }
 
